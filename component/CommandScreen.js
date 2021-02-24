@@ -7,46 +7,49 @@ import database from '@react-native-firebase/database'
 import { firebase } from '@react-native-firebase/auth';
 
  const CommandScreen=({navigate})=> {
-  const [dish,setDish] = useState({})
+  const [dishes,setDishes] = useState({})
   const {logout} =useContext(AuthContext) 
   useEffect(() => {
     const onValueChange = database()
     .ref('Dish')
     .on('value', snapshot => {
-      setDish(snapshot.val());
+      setDishes(snapshot.val());
     });
+  });
+ const dishProduit = dishes.map(dish=>{return <Card style={{flex: 0}}>
+    <CardItem key={dish.id}>
+      <Left>
+        <Thumbnail source={{uri: 'Image URL'}} />
+        <Body>
+          <Text>NativeBase</Text>
+          <Text note>April 15, 2016</Text>
+        </Body>
+      </Left>
+    </CardItem>
+    <CardItem>
+      <Body>
+        <Image source={{uri: dish.url}} style={{height: 200, width: 300, flex: 1,opacity:0.5}}/>
+        <Text>
+          {dish.nom}
+        </Text>
+      </Body>
+    </CardItem>
+    <CardItem>
+      <Left>
+        <Button transparent textStyle={{color: '#87838B'}}>
+          <Icon name="logo-github" />
+          <Text>1,926 stars</Text>
+        </Button>
+      </Left>
+    </CardItem>
+  </Card>
+
   })
     return (
         <Container>
         
         <Content>
-          <Card style={{flex: 0}}>
-            <CardItem>
-              <Left>
-                <Thumbnail source={{uri: 'Image URL'}} />
-                <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>April 15, 2016</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem>
-              <Body>
-                <Image source={{uri: 'https://i.ibb.co/ftvyhP2/vegan-mushroom-bean-burger-recipe-3378623-13-preview1-5b241897fa6bcc0036d2c9bf.jpg'}} style={{height: 200, width: 300, flex: 1,opacity:0.5}}/>
-                <Text>
-                  //Your text here
-                </Text>
-              </Body>
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Button transparent textStyle={{color: '#87838B'}}>
-                  <Icon name="logo-github" />
-                  <Text>1,926 stars</Text>
-                </Button>
-              </Left>
-            </CardItem>
-          </Card>
+         {dishProduit}
         </Content>
  
       </Container>
