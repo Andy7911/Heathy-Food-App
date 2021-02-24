@@ -1,11 +1,21 @@
-import React, { Component,useContext } from 'react';
+import React, { Component,useContext,useEffect,useState  } from 'react';
 import { Image } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
 import { AuthContext } from '../navigate/AuthProvider';
 import axios from 'axios';
+import database from '@react-native-firebase/database'
+import { firebase } from '@react-native-firebase/auth';
+
  const CommandScreen=({navigate})=> {
-  
+  const [dish,setDish] = useState({})
   const {logout} =useContext(AuthContext) 
+  useEffect(() => {
+    const onValueChange = database()
+    .ref('Dish')
+    .on('value', snapshot => {
+      setDish(snapshot.val());
+    });
+  })
     return (
         <Container>
         
@@ -38,7 +48,7 @@ import axios from 'axios';
             </CardItem>
           </Card>
         </Content>
-        <Button onPress={()=>{logout()}}><Text>Press</Text></Button>
+ 
       </Container>
     );
   }
