@@ -36,7 +36,7 @@ import { color } from 'react-native-reanimated';
       <Left>
         <Thumbnail source={{uri: 'Image URL'}} />
         <Body>
-          <Text>NativeBase</Text>
+          <Text>{dish.nom}</Text>
           <Text note>April 15, 2016</Text>
         </Body>
       </Left>
@@ -45,7 +45,7 @@ import { color } from 'react-native-reanimated';
       <Body>
         <Image source={{uri: dish.url}} style={{height: 200, width: 300, flex: 1,opacity:0.5}}/>
         <Text>
-          Prix: {dish.nom}
+         {dish.Description}
         </Text>
       </Body>
     </CardItem>
@@ -58,8 +58,8 @@ import { color } from 'react-native-reanimated';
         </Button>
       </Left>
       <Right>
-      <Button full transparent textStyle={{color: '#87838B',}} >
-          <Text style={{fontSize:19}}>{dish.prix} $</Text>
+      <Button transparent textStyle={{color: '#87838B',}} >
+          <Text style={{fontSize:19}}> Prix: {dish.prix} $</Text>
           <Text onPress={()=>{setPanier([...panier,dish])}} style={{fontSize:19,marginRight:11}}>Add to Cart</Text>
         </Button>
         
@@ -72,7 +72,7 @@ import { color } from 'react-native-reanimated';
     return (
         <Container>
         
-        <Content>
+        <Content style={{marginTop:25}}>
         
          {dishProduit} 
            
