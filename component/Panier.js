@@ -1,7 +1,7 @@
 import React,{useContext} from 'react'
 import { View ,Image} from 'react-native'
 import { AuthContext } from '../navigate/AuthProvider';
-import { Container, Header, Content, Card, CardItem, Body, Text } from 'native-base';
+import { Container, Header, Content, Card, CardItem, Body, Text, Button } from 'native-base';
 export default class Panier extends React.Component {
         static contextType = AuthContext;
         constructor(props) {
@@ -21,6 +21,7 @@ export default class Panier extends React.Component {
     render(){
         const { navigation } = this.props;
         const{panier,setPanier}=this.context
+
         
         const itemsCart = panier.map(item=>{
             return   <Card key={item.id}>
@@ -31,12 +32,15 @@ export default class Panier extends React.Component {
                    {item.nom}
                 </Text>
                 <Text>
-                    
+                   prix : {item.prix}
                 </Text>
               </Body>
             </CardItem>
           </Card>
         })
+       const sum = panier.reduce(function (total, currentValue) {
+            return total + currentValue.prix;
+        }, 0);
     return (
         <Container>
         <Header />
@@ -47,6 +51,18 @@ export default class Panier extends React.Component {
             </Text>:itemsCart}
        
         </Content>
+        <Card >
+            <CardItem >
+              <Body style={{flex:1,flexDirection:'row'}}>
+               
+                <Text>
+               Total  {sum} $
+                </Text>
+               
+                <Button rounded  ><Text>Pay</Text></Button>
+              </Body>
+            </CardItem>
+          </Card>
       </Container>
     )}
 } 
