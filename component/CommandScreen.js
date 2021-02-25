@@ -30,7 +30,7 @@ import { color } from 'react-native-reanimated';
  }
   render(){
   const { navigation } = this.props;
-    const{register,login}=this.context
+    const{panier,login,setPanier}=this.context
  const dishProduit = this.state.dishes.map(dish=>{return <Card key={dish.id} style={{flex: 0}}>
     <CardItem key={dish.id}>
       <Left>
@@ -60,7 +60,7 @@ import { color } from 'react-native-reanimated';
       <Right>
       <Button full transparent textStyle={{color: '#87838B',}} >
           <Text style={{fontSize:19}}>{dish.prix} $</Text>
-          <Text style={{fontSize:19,marginRight:11}}>Add to Cart</Text>
+          <Text onPress={()=>{setPanier([...panier,dish])}} style={{fontSize:19,marginRight:11}}>Add to Cart</Text>
         </Button>
         
       </Right>
@@ -73,9 +73,11 @@ import { color } from 'react-native-reanimated';
         <Container>
         
         <Content>
-         {dishProduit}
+        
+         {dishProduit} 
+           
         </Content>
- 
+       <Button style={{position:'absolute',left:0,right:0,zIndex:-1}} ><Icon name="cart" ></Icon><Text>{panier.length}</Text></Button>
       </Container>
     );}
     

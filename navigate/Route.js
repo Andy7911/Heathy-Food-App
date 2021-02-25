@@ -9,6 +9,7 @@ import auth from '@react-native-firebase/auth';
 import { AuthContext } from './AuthProvider';
 import { Icon, Item, Input } from 'native-base';
 import PanierScreen from '../component/Panier';
+import CategorieScreen from '../component/Categorie';
 export default function Route() {
     const [initializing, setInitializing] = useState(true);
     const { user, setUser, logout } = useContext(AuthContext);
@@ -39,6 +40,9 @@ export default function Route() {
         Panier: {
             screen: PanierScreen
         },
+        Categorie: {
+            screen: CategorieScreen
+        },
         
     },
         {
@@ -68,6 +72,12 @@ export default function Route() {
 
             })
         },
+        CategorieScreen: {
+            screen: AppDrawerNav,
+            navigationOptions: () => ({
+
+            })
+        }
     })
 
     const LoginContainer = createAppContainer(LoginApp)
