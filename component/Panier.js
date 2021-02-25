@@ -14,10 +14,7 @@ export default class Panier extends React.Component {
     }
 
 
-    componentDidMount() {
-
-
-    }
+  
     render() {
         const { navigation } = this.props;
         const { panier, setPanier } = this.context
