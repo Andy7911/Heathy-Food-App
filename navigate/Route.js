@@ -8,6 +8,8 @@ import CommandScreen from '../component/CommandScreen'
 import auth from '@react-native-firebase/auth';
 import { AuthContext } from './AuthProvider';
 import { Icon, Item, Input } from 'native-base';
+import PanierScreen from '../component/Panier';
+import CategorieScreen from '../component/Categorie';
 export default function Route() {
     const [initializing, setInitializing] = useState(true);
     const { user, setUser, logout } = useContext(AuthContext);
@@ -19,7 +21,7 @@ export default function Route() {
                     <Text> Logout</Text>
                 </Item>
             </View>
-            <View style={{ height: 100, width: 200,marginBottom:20}}>
+            <View style={{ height: 100, width: 200, marginBottom: 20 }}>
                 <Image style={{ height: 100, width: 50 }} source={require('../image/logo.png')} ></Image>
                 <Text>{`Welcome :${user.email}`}</Text>
             </View>
@@ -35,6 +37,13 @@ export default function Route() {
         commad: {
             screen: CommandScreen
         },
+        Panier: {
+            screen: PanierScreen
+        },
+        Categorie: {
+            screen: CategorieScreen
+        },
+        
     },
         {
             contentComponent: customDrawer
@@ -57,6 +66,18 @@ export default function Route() {
                 headerShown: false
             })
         },
+        PanierScreen: {
+            screen: AppDrawerNav,
+            navigationOptions: () => ({
+
+            })
+        },
+        CategorieScreen: {
+            screen: AppDrawerNav,
+            navigationOptions: () => ({
+
+            })
+        }
     })
 
     const LoginContainer = createAppContainer(LoginApp)

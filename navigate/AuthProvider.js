@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider=({children})=>{
  const [user,setUser] = useState(false);
- const [panier,setPanier] =useState(false);
+ const [panier,setPanier] =useState([]);
 return (
 <AuthContext.Provider
 value={{ 
