@@ -45,7 +45,7 @@ import { color } from 'react-native-reanimated';
       <Body>
         <Image source={{uri: dish.url}} style={{height: 200, width: 300, flex: 1,opacity:0.5}}/>
         <Text>
-          {dish.nom}
+          Prix: {dish.nom}
         </Text>
       </Body>
     </CardItem>

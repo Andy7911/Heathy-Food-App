@@ -34,7 +34,7 @@ export default function Route() {
     );
 
     const AppDrawerNav = createDrawerNavigator({
-        commad: {
+        Assiete: {
             screen: CommandScreen
         },
         Panier: {
