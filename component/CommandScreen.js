@@ -31,7 +31,7 @@ import { color } from 'react-native-reanimated';
   render(){
   const { navigation } = this.props;
     const{panier,login,setPanier}=this.context
- const dishProduit = this.state.dishes.map(dish=>{return <Card key={dish.id} style={{flex: 0}}>
+ const dishProduit = this.state.dishes.map(dish=>{return <Card key={dish.id} style={{flex: 0,marginTop:20}}>
     <CardItem key={dish.id}>
       <Left>
         <Thumbnail source={{uri: 'Image URL'}} />
@@ -41,7 +41,7 @@ import { color } from 'react-native-reanimated';
         </Body>
       </Left>
     </CardItem>
-    <CardItem>
+    <CardItem style={{justifyContent:'center',alignItems:'center'}}>
       <Body>
         <Image source={{uri: dish.url}} style={{height: 200, width: 300, flex: 1,opacity:0.5}}/>
         <Text>

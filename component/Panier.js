@@ -1,5 +1,5 @@
 import React,{useContext} from 'react'
-import { View } from 'react-native'
+import { View ,Image} from 'react-native'
 import { AuthContext } from '../navigate/AuthProvider';
 import { Container, Header, Content, Card, CardItem, Body, Text } from 'native-base';
 export default class Panier extends React.Component {
@@ -24,10 +24,14 @@ export default class Panier extends React.Component {
         
         const itemsCart = panier.map(item=>{
             return   <Card key={item.id}>
-            <CardItem>
-              <Body>
+            <CardItem >
+              <Body style={{flex:1,flexDirection:'row'}}>
+               <Image style={{height:50,width:50}} source={{uri: item.url}} ></Image>
                 <Text>
                    {item.nom}
+                </Text>
+                <Text>
+                    
                 </Text>
               </Body>
             </CardItem>
@@ -37,7 +41,11 @@ export default class Panier extends React.Component {
         <Container>
         <Header />
         <Content>
-        {itemsCart}
+            { !panier?
+            <Text style={{margin:0,textAlign:'center',fontSize:30}}>
+                Panier vide
+            </Text>:itemsCart}
+       
         </Content>
       </Container>
     )}

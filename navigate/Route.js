@@ -10,6 +10,7 @@ import { AuthContext } from './AuthProvider';
 import { Icon, Item, Input } from 'native-base';
 import PanierScreen from '../component/Panier';
 import CategorieScreen from '../component/Categorie';
+import DesertScreen from '../component/Desert';
 export default function Route() {
     const [initializing, setInitializing] = useState(true);
     const { user, setUser, logout } = useContext(AuthContext);
@@ -74,6 +75,12 @@ export default function Route() {
         },
         CategorieScreen: {
             screen: AppDrawerNav,
+            navigationOptions: () => ({
+
+            })
+        },
+        Desert: {
+            screen: DesertScreen,
             navigationOptions: () => ({
 
             })
