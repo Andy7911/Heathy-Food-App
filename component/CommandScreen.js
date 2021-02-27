@@ -53,14 +53,14 @@ import { color } from 'react-native-reanimated';
       <Left>
         <Button transparent textStyle={{color: '#87838B',}} >
           <Icon style={{color:'#ffc107'}} name="star" />
-          <Text style={{fontSize:19}} >4.6</Text>
+          <Text style={{fontSize:15}} >4.6</Text>
        
         </Button>
       </Left>
       <Right>
       <Button transparent textStyle={{color: '#87838B',}} >
-          <Text style={{fontSize:19}}> Prix: {dish.prix} $</Text>
-          <Text onPress={()=>{setPanier([...panier,dish])}} style={{fontSize:19,marginRight:11}}>Add to Cart</Text>
+          <Text style={{fontSize:15}}> Prix: {dish.prix} $</Text>
+          <Text onPress={()=>{setPanier([...panier,dish])}} style={{fontSize:15,marginRight:11}}>Add to Cart</Text>
         </Button>
         
       </Right>
