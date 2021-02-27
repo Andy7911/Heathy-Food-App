@@ -36,8 +36,8 @@ export default class Panier extends React.Component {
                         <Text style={{ marginLeft: 15 }}>
                             {item.nom}
                         </Text>
-                        <Text>
-                            prix : {item.prix} $
+                        <Text style={{ marginRight: 15 }}>
+                             prix: {item.prix} $
                         </Text>
                     </Body>
                 </CardItem>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {  View, StyleSheet, Pressable,Modal, TextInput} from 'react-native'
-import { Text, Item, Input, Form, Container, Header, Content, Label, Button, Icon, StyleProvider, Right, Image } from 'native-base';
+import {  View, StyleSheet, Pressable,Modal, TextInput,Image} from 'react-native'
+import { Text, Item, Input, Form, Container, Header, Content, Label, Button, Icon, StyleProvider, Right } from 'native-base';
 export default class Formulaire extends Component {
     state = {
         modalVisible: false
@@ -25,7 +25,7 @@ export default class Formulaire extends Component {
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
                   <View>
-                    <Image  ></Image>
+                    <Image source={require('../image/stripe-payment-icon.png')} style={{width:200,height:100}} ></Image>
                   </View>
            <TextInput placeholder='Credit card' autoCompleteType='cc-number' keyboardType='numeric' autoCorrect style={{borderWidth:0.5,borderColor:'black',width:'100%',borderRadius:10}}></TextInput>
            <TextInput placeholder='Credit card 2' style={{borderWidth:0.5,borderColor:'black',width:'100%',borderRadius:10,marginTop:10,marginBottom:10}}></TextInput>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     padding: 35,
     alignItems: "center",
     shadowColor: "#000",
-    height:300,
+    height:330,
     width:300,
     shadowOffset: {
       width: 0,
