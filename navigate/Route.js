@@ -10,20 +10,25 @@ import { AuthContext } from './AuthProvider';
 import { Icon, Item, Input } from 'native-base';
 import PanierScreen from '../component/Panier';
 import CategorieScreen from '../component/Categorie';
+import DesertScreen from '../component/Desert';
 export default function Route() {
     const [initializing, setInitializing] = useState(true);
     const { user, setUser, logout } = useContext(AuthContext);
     const customDrawer = (props) => (
         <SafeAreaView style={{ flex: 1 }}>
-            <View style={{ height: 20, width: 100 }}>
+            <View style={{ height: 70, width: 100 }}>
                 <Item>
                     <Icon style={{ height: 20, height: 20 }} type="FontAwesome" name="sign-out" onPress={() => { logout() }} />
                     <Text> Logout</Text>
                 </Item>
             </View>
             <View style={{ height: 100, width: 200, marginBottom: 20 }}>
-                <Image style={{ height: 100, width: 50 }} source={require('../image/logo.png')} ></Image>
-                <Text>{`Welcome :${user.email}`}</Text>
+                <View style={{flex:1,flexDirection:'row', justifyContent:'space-between',marginBottom:10}}>
+                    <Image style={{ height: 100, width: 50 }} source={require('../image/logo.png')} >
+                    </Image>
+                    <Text>HEALTHY FOOD</Text>
+                </View>
+                <Text style={{marginTop:10}}>{`Welcome :${user.email}`}</Text>
             </View>
 
             <ScrollView>
@@ -34,7 +39,7 @@ export default function Route() {
     );
 
     const AppDrawerNav = createDrawerNavigator({
-        commad: {
+        Assiete: {
             screen: CommandScreen
         },
         Panier: {
@@ -43,7 +48,7 @@ export default function Route() {
         Categorie: {
             screen: CategorieScreen
         },
-        
+
     },
         {
             contentComponent: customDrawer
@@ -74,6 +79,12 @@ export default function Route() {
         },
         CategorieScreen: {
             screen: AppDrawerNav,
+            navigationOptions: () => ({
+
+            })
+        },
+        Desert: {
+            screen: DesertScreen,
             navigationOptions: () => ({
 
             })
