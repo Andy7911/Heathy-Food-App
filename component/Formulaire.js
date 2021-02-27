@@ -25,7 +25,7 @@ export default class Formulaire extends Component {
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
                   <View>
-                    <Image source={require('../image/stripe-payment-icon.png')} style={{width:200,height:100}} ></Image>
+                    <Image source={require('../image/PngItemStripe.png')} style={{width:230,height:75, marginBottom:10}} ></Image>
                   </View>
            <TextInput placeholder='Credit card' autoCompleteType='cc-number' keyboardType='numeric' autoCorrect style={{borderWidth:0.5,borderColor:'black',width:'100%',borderRadius:10}}></TextInput>
            <TextInput placeholder='Credit card 2' style={{borderWidth:0.5,borderColor:'black',width:'100%',borderRadius:10,marginTop:10,marginBottom:10}}></TextInput>
