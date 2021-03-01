@@ -11,16 +11,16 @@ import { Icon, Item, Input } from 'native-base';
 import PanierScreen from '../component/Panier';
 import CategorieScreen from '../component/Categorie';
 import DesertScreen from '../component/Desert';
+import Profil from '../component/Profil';
+
+
 export default function Route() {
     const [initializing, setInitializing] = useState(true);
     const { user, setUser, logout } = useContext(AuthContext);
     const customDrawer = (props) => (
         <SafeAreaView style={{ flex: 1 }}>
-            <View style={{ height: 70, width: 100 }}>
-                <Item>
-                    <Icon style={{ height: 20, height: 20 }} type="FontAwesome" name="sign-out" onPress={() => { logout() }} />
-                    <Text> Logout</Text>
-                </Item>
+            <View style={{ height: 80, width: 100 }}>
+              
             </View>
             <View style={{ height: 100, width: 200, marginBottom: 20 }}>
                 <View style={{flex:1,flexDirection:'row', justifyContent:'space-between',marginBottom:10}}>
@@ -28,12 +28,19 @@ export default function Route() {
                     </Image>
                     <Text>HEALTHY FOOD</Text>
                 </View>
+                <View>
                 <Text style={{marginTop:10}}>{`Welcome :${user.email}`}</Text>
+                </View>
             </View>
 
             <ScrollView>
                 <DrawerItems {...props} />
             </ScrollView>
+
+            <Item>
+                    <Icon style={{ height: 20, height: 20 }} type="FontAwesome" name="sign-out" onPress={() => { logout() }} />
+                    <Text> Logout</Text>
+                </Item>
         </SafeAreaView>
 
     );
@@ -48,6 +55,16 @@ export default function Route() {
         Categorie: {
             screen: CategorieScreen
         },
+        Profil:{
+            screen:Profil,  
+             navigationOptions: {
+                drawerIcon: (
+                 <Icon type="FontAwesome5" name='user-cog'>
+                      
+                 </Icon>
+                ),
+              },
+        }
 
     },
         {

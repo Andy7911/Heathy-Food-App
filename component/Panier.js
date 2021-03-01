@@ -39,6 +39,7 @@ export default class Panier extends React.Component {
                         <Text style={{ marginRight: 15 }}>
                              prix: {item.prix} $
                         </Text>
+                        <Button><Text>X</Text></Button>
                     </Body>
                 </CardItem>
             </Card>
@@ -51,7 +52,7 @@ export default class Panier extends React.Component {
                 <Header />
                 <Content>
                     <Modal visible={this.state.visible} onDisableCallBack={()=>this.disable()} ></Modal>
-                    {!panier ?
+                    {panier.length==0 ?
                         <Text style={{ margin: 0, textAlign: 'center', fontSize: 30 }}>
                             Panier vide
             </Text> : itemsCart}

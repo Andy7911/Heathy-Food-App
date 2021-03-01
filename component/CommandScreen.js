@@ -43,9 +43,9 @@ import { color } from 'react-native-reanimated';
     </CardItem>
     <CardItem style={{justifyContent:'center',alignItems:'center'}}>
       <Body>
-        <Image source={{uri: dish.url}} style={{height: 200, width: 300, flex: 1,opacity:0.5}}/>
+        <Image source={{uri: dish.url}} style={{height: 200, width: 400, flex: 1}}/>
         <Text>
-         {dish.Description}
+         {dish.description}
         </Text>
       </Body>
     </CardItem>
