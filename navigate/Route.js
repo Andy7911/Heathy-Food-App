@@ -10,7 +10,7 @@ import { AuthContext } from './AuthProvider';
 import { Icon, Item, Input } from 'native-base';
 import PanierScreen from '../component/Panier';
 import CategorieScreen from '../component/Categorie';
-import DesertScreen from '../component/Desert';
+import DesertScreen from '../component/Dessert';
 import Profil from '../component/Profil';
 
 

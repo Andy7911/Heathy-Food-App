@@ -34,7 +34,7 @@ class  Dessert extends React.Component{
     const { navigation } = this.props;
       const{panier,login,setPanier}=this.context
    const desertProduit = this.state.dishes.map(desert=>{return <Card key={desert.id} style={{flex: 0,marginTop:20}}>
-      <CardItem key={dish.id}>
+      <CardItem key={desert.id}>
         <Left>
           <Thumbnail source={{uri: 'Image URL'}} />
           <Body>

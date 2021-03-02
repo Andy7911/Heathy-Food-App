@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, Form, Item, Input, Label } from 'native-base';
+import { Container, Header, Content, Form, Item, Input, Label, Button,Text,Icon } from 'native-base';
 
 export default function Profil() {
     return (
@@ -8,18 +8,27 @@ export default function Profil() {
         <Content>
           <Form>
             <Item stackedLabel last>
-              <Label>Nom</Label>
+              <Label>Name</Label>
               <Input />
+            </Item>
+         
+            <Item stackedLabel last>
+            
+              <Icon type='FontAwesome5' name='home'></Icon>
+              <Input placeholder='Adress' />
+              </Item>
+              <Item stackedLabel last>
+                <Icon type='FontAwesome5' name='phone' ></Icon>
+            
+              <Input placeholder='Phone Number' />
             </Item>
             <Item stackedLabel last>
-              <Label>Prenom</Label>
-              <Input />
+             
+              <Input placeholder='Date de naissance' />
             </Item>
-            <Item stackedLabel last>
-              <Label>Adress</Label>
-              <Input />
-            </Item>
+
           </Form>
+          <Button full rounded><Text>Confirmer</Text></Button>
         </Content>
       </Container>
     )
