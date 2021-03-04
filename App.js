@@ -8,6 +8,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import {AuthContext, AuthProvider} from './navigate/AuthProvider';
 import auth from '@react-native-firebase/auth';
 import Route from './navigate/Route';
+import {CartProvider} from './navigate/CartProvider';
 
 
 const AppDrawerNav =  createDrawerNavigator({
@@ -50,8 +51,9 @@ const App =()=>{
 
 return(
   <AuthProvider>
- 
+ <CartProvider>
 <Route></Route>
+</CartProvider>
   </AuthProvider>
 );
 }

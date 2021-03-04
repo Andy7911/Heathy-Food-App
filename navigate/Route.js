@@ -12,6 +12,7 @@ import PanierScreen from '../component/Panier';
 import CategorieScreen from '../component/Categorie';
 import DesertScreen from '../component/Dessert';
 import Profil from '../component/Profil';
+import {CartContext, CartProvider} from '../navigate/CartProvider';
 
 
 export default function Route() {

@@ -1,20 +1,21 @@
 import React, { useContext } from 'react'
 import { View, Image } from 'react-native'
-import { AuthContext } from '../navigate/AuthProvider';
+import { CartContext } from '../navigate/CartProvider';
 import { Container, Header, Content, Card, CardItem, Body, Text, Button } from 'native-base';
 import Modal from './Formulaire';
 export default class Panier extends React.Component {
-    static contextType = AuthContext;
+    static contextType = CartContext;
     constructor(props) {
 
         super(props);
         this.state = {
             total: 0,
             taxe: 0.00,
-            visible: false
+            visible: false,
+            monPanier:[{}]
         };
     }
-
+ 
   Setvisible =()=>{
 
             this.setState({visible:!this.state.visible});
@@ -25,21 +26,21 @@ export default class Panier extends React.Component {
 
     render() {
         const { navigation } = this.props;
-        const { panier, setPanier } = this.context
+        const { panier, setPanier,handleDelete } = this.context
        
-
+      
         const itemsCart = panier.map(item => {
             return <Card key={item.id}>
                 <CardItem >
                     <Body style={{ flex: 1, flexDirection: 'row' }}>
                         <Image style={{ height: 50, width: 50 }} source={{ uri: item.url }} ></Image>
-                        <Text style={{ marginLeft: 15 }}>
+                        <Text style={{ marginLeft: 15,fontSize:15}}>
                             {item.nom}
                         </Text>
-                        <Text style={{ marginRight: 15 }}>
+                        <Text style={{ marginRight: 15,fontSize:15 }}>
                              prix: {item.prix} $
                         </Text>
-                        <Button><Text>X</Text></Button>
+                        <Button style={{backgroundColor:'red',fontSize:15,width:55,height:25}} onPress={()=>handleDelete(item.id)}><Text style={{fontSize:9}}>sup</Text></Button>
                     </Body>
                 </CardItem>
             </Card>
@@ -63,7 +64,7 @@ export default class Panier extends React.Component {
                         <Body style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
 
                             <Text>
-                                Total:  {sum} $
+                                Total:  {parseFloat(sum).toFixed(2)}  $
                             </Text>
                             <Text>
                                 Taxe:  {parseFloat(sum * 0.1495).toFixed(2)} $

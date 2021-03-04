@@ -1,7 +1,7 @@
 import React, { Component,useContext,useEffect,useState  } from 'react';
 import { Image } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
-import { AuthContext } from '../navigate/AuthProvider';
+import { CartContext } from '../navigate/CartProvider';
 import axios from 'axios';
 import database from '@react-native-firebase/database'
 import { firebase } from '@react-native-firebase/auth';
@@ -9,7 +9,7 @@ import { render } from 'react-dom';
 import { color } from 'react-native-reanimated';
 
  class  CommandScreen extends React.Component{
-  static contextType = AuthContext;
+  static contextType = CartContext;
   constructor(props) {
    
     super(props);
