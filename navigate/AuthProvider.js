@@ -24,6 +24,14 @@ value={{
         }
 
     },
+    handleDelete(id){
+        const items = panier.slice();
+        const index = items.findIndex(function(item){
+            return item.id ==id;
+        })
+        items.splice(index,1)
+        setPanier(items);
+    },
     register: async (email,password)=>{
     try{
         

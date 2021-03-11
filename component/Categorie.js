@@ -3,14 +3,14 @@ import { View } from 'react-native'
 import { Image } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 
-export default function Categorie({ navigation: { navigate } }) {
+export default function Categorie({ navigation }) {
     
     return (
         <Container>
         <Header />
         <Content>
-          <Card  >
-            <CardItem>
+          <Card >
+            <CardItem >
               <Left>
                 <Thumbnail source={{uri: 'Image URL'}} />
                 <Body>
@@ -19,8 +19,8 @@ export default function Categorie({ navigation: { navigate } }) {
                 </Body>
               </Left>
             </CardItem>
-            <CardItem onPress={()=>{navigate('Desert')}} cardBody style={{justifyContent:'center',alignItems:'center'}}>
-            <Image  source={require('../image/choco.png')} ></Image>
+            <CardItem   button onPress={()=>navigation.navigate('Desert')} cardBody style={{justifyContent:'center',alignItems:'center'}}>
+            <Image  source={require('../image/choco.png')}  onPress={()=>{console.log('press desert')}}></Image>
             </CardItem>
             <CardItem>
               <Left>
