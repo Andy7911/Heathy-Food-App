@@ -28,10 +28,23 @@ import { color } from 'react-native-reanimated';
   });
 
  }
+ addquatité(id){
+const items = this.state.dishes.slice;
+  const index = items.findIndex(function(item){
+    return item== id;
+  })
+  if(index!=-1){
+
+    items[index].quatité=1;
+
+  }
+
+ }
   render(){
   const { navigation } = this.props;
     const{panier,login,setPanier}=this.context
  const dishProduit = this.state.dishes.map(dish=>{return <Card key={dish.id} style={{flex: 0,marginTop:20}}>
+   
     <CardItem key={dish.id}>
       <Left>
         <Thumbnail source={{uri: 'Image URL'}} />
@@ -60,7 +73,8 @@ import { color } from 'react-native-reanimated';
       <Right>
       <Button transparent textStyle={{color: '#87838B',}} >
           <Text style={{fontSize:15}}> Prix: {dish.prix} $</Text>
-          <Text onPress={()=>{setPanier([...panier,dish])}} style={{fontSize:15,marginRight:11}}>Add to Cart</Text>
+      
+          <Text onPress={()=>{setPanier([...panier,dish,dish.quatié=1])}} style={{fontSize:15,marginRight:11}}>Add to Cart</Text>
         </Button>
         
       </Right>

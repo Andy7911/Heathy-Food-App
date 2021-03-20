@@ -19,7 +19,7 @@ const LoginApp = createStackNavigator({
 SignUpScreen:{
   screen: SignUpScreen,
   navigationOptions:()=>({
-    title:'sighup',
+    title:'sign',
   })
 }
 
