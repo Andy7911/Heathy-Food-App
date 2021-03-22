@@ -62,7 +62,7 @@ return(
                                     {item.nom}
                                 </Text>
                                 <Text style={{ marginRight: 15,fontSize:15 }}>
-                                     prix: {item.prix} $
+                                     prix: {item.sommePrix} $
                                 </Text>
                         
                        
@@ -80,7 +80,7 @@ return(
             )
         })
         const sum = panier.reduce(function (total, currentValue) {
-            return total + currentValue.prix;
+            return total + currentValue.sommePrix;
         }, 0);
         return (
             <Container>

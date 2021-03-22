@@ -19,22 +19,21 @@ export const CartProvider = ({ children }) => {
             items.splice(index, 1)
             setPanier(items);
         },
-        addquatite(id, Dish) {
+        addQuantite(id, Dish) {
             debugger;
             const items = panier.slice();
-            const index = items.findIndex(function (item) {
-                return item.id == id;
-            })
-            if (index != -1) {
-                panier[index].quatité++;
-                const nbquatité = panier[index].quatité;
-                const nvprix = nbquatité * panier[index].prixIni;
-                panier[index].prix = nvprix;
+            const item = items.find(x=>x.id==id)
+            if (item!= undefined) {
+                item.quatité++;
+                const nbquatité =item.quatité;
+                const nvprix = nbquatité * item.prix;
+                item.sommePrix = nvprix;
 
             }
             else {
+
                 Dish.quatité = 1
-                Dish.prixIni = Dish.prix;
+                Dish.sommePrix = Dish.prix;
                 setPanier([...panier, Dish]);
             }
 

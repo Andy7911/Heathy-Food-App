@@ -32,7 +32,7 @@ class  Dessert extends React.Component{
    }
     render(){
     const { navigation } = this.props;
-      const{panier,login,setPanier}=this.context
+      const{panier,login,setPanier,addQuantite}=this.context
    const desertProduit = this.state.dishes.map(desert=>{return <Card key={desert.id} style={{flex: 0,marginTop:20}}>
       <CardItem key={desert.id}>
         <Left>
@@ -62,7 +62,7 @@ class  Dessert extends React.Component{
         <Right>
         <Button transparent textStyle={{color: '#87838B',}} >
             <Text style={{fontSize:15}}> Prix: {desert.prix} $</Text>
-            <Text onPress={()=>{setPanier([...panier,desert])}} style={{fontSize:15,marginRight:11}}>Add to Cart</Text>
+            <Text  onPress={()=>{addQuantite(desert.id,desert)}} style={{fontSize:15,marginRight:11}}>Add to Cart</Text>
           </Button>
           
         </Right>
