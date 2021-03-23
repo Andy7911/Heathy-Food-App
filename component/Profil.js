@@ -15,7 +15,7 @@ export default function Profil() {
             <Item stackedLabel last>
             
               <Icon type='FontAwesome5' name='home'></Icon>
-              <Input placeholder='Adress' />
+              <Input placeholder='Adresse' />
               </Item>
               <Item stackedLabel last>
                 <Icon type='FontAwesome5' name='phone' ></Icon>
@@ -23,7 +23,7 @@ export default function Profil() {
               <Input placeholder='Phone Number' />
             </Item>
             <Item stackedLabel last>
-             
+          <Icon type='FontAwesome5' name='calendar'></Icon>
               <Input placeholder='Date de naissance' />
             </Item>
 
