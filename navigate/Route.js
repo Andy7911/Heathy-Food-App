@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { View, Text, SafeAreaView, ScrollView, Image } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, Image,Button } from 'react-native'
 import { createAppContainer, } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
@@ -86,8 +86,14 @@ export default function Route() {
         CommandScreen: {
             screen: AppDrawerNav,
             navigationOptions: () => ({
-                headerShown: false
-            })
+                headerTitle: () => <Text>Panier</Text>,
+                headerRight: () => (
+                  <Button
+                    onPress={() => alert('This is a button!')}
+                    title="Info"
+                    color="#fff"
+                  />
+            )})
         },
         PanierScreen: {
             screen: AppDrawerNav,

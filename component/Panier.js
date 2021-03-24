@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Image,StyleSheet } from 'react-native'
+import { Image,StyleSheet, ScrollView } from 'react-native'
 import { CartContext } from '../navigate/CartProvider';
 import { Container, Header, Content, Card, CardItem, Body, Text, Button,SwipeRow,Icon,View } from 'native-base';
 import Modal from './Formulaire';
@@ -85,13 +85,14 @@ return(
         return (
             <Container>
                 <Header />
-                <Content scrollEnabled={false}>
+                <Content scrollEnabled={true}>
                     <Modal visible={this.state.visible} onDisableCallBack={()=>this.disable()} ></Modal>
+                   
                     {panier.length==0 ?
                         <Text style={{ margin: 0, textAlign: 'center', fontSize: 30 }}>
                             Panier vide
             </Text> : itemsCart}
-
+                
                 </Content>
                 <Card >
                     <CardItem >

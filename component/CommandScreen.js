@@ -91,7 +91,7 @@ const items = this.state.dishes.slice;
          {dishProduit} 
            
         </Content>
-       <Button style={{position:'absolute',left:0,right:0,zIndex:-1}} ><Icon name="cart" ></Icon><Text>{panier.length}</Text></Button>
+       <Button style={{position:'absolute',left:25,right:0,zIndex:-1,bottom:10,width:'90%',justifyContent:'center',backgroundColor:'black'}} ><Text>Afficher le panier  .{panier.length}</Text></Button>
       </Container>
     );}
     
