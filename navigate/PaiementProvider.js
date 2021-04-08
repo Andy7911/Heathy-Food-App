@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Stripe from 'react-native-stripe-api';
+import axios from 'axios'
 
 
 export const PaiementContext = React.createContext();
