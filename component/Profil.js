@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Container, Header, Content,Text,Icon,Badge,Card,CardItem,Body } from 'native-base';
 import { Alert } from 'react-native';
 
-export default function Profil() {
+export default function Profil({navigation}) {
     return (
         <Container>
-        <Header><Badge ><Icon type='FontAwesome5' name="user" ></Icon></Badge></Header>
+        <Header style={{flexDirection: 'row',justifyContent: 'flex-start',alignContent:'center' } }><Badge><Icon type='FontAwesome5' name="user" ></Icon></Badge></Header>
         <Content scrollEnabled={true}>
         <Card transparent>
             <CardItem>
@@ -18,7 +18,7 @@ export default function Profil() {
             </CardItem>
           </Card>
           <Card transparent>
-            <CardItem button onPress={()=>alert('coucou')}>
+            <CardItem button onPress={()=>navigation.navigate('Wallet')}>
               <Body style={{ flex: 1, flexDirection: 'row',  }}>
                 <Icon type="FontAwesome5" name="wallet"></Icon>
                 <Text style={{marginLeft:10}}>

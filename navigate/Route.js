@@ -13,6 +13,8 @@ import CategorieScreen from '../component/Categorie';
 import DesertScreen from '../component/Dessert';
 import Profil from '../component/Profil';
 import {CartContext, CartProvider} from '../navigate/CartProvider';
+import Wallet from '../component/WalletScreen';
+import WalletScreen from '../component/WalletScreen';
 
 
 export default function Route() {
@@ -103,6 +105,12 @@ export default function Route() {
         },
         Desert: {
             screen: DesertScreen,
+            navigationOptions: () => ({
+
+            })
+        },
+        Wallet:{
+            screen:WalletScreen,
             navigationOptions: () => ({
 
             })

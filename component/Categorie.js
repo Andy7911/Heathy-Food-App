@@ -133,6 +133,7 @@ export default function Categorie({ navigation }) {
               </Right>
             </CardItem>
           </Card>
+         
         </Content>
       </Container>)
 }
