@@ -86,14 +86,8 @@ export default function Route() {
         CommandScreen: {
             screen: AppDrawerNav,
             navigationOptions: () => ({
-                headerTitle: () => <Text>Panier</Text>,
-                headerRight: () => (
-                  <Button
-                    onPress={() => alert('This is a button!')}
-                    title="Info"
-                    color="#fff"
-                  />
-            )})
+               headerShown:false
+            })
         },
         PanierScreen: {
             screen: AppDrawerNav,
