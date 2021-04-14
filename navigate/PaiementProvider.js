@@ -14,7 +14,8 @@ export const PaiementProvider = ({ children }) => {
 
       paiement:async(totalCost)=>{
       axios({
-
+          method:'POST',
+          url:'https://api.stripe.com/v1/charges'
         
       })
         

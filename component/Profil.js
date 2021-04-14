@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Header, Content,Text,Icon,Badge,Card,CardItem,Body } from 'native-base';
+import { Alert } from 'react-native';
 
 export default function Profil() {
     return (
@@ -17,8 +18,8 @@ export default function Profil() {
             </CardItem>
           </Card>
           <Card transparent>
-            <CardItem>
-              <Body style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+            <CardItem button onPress={()=>alert('coucou')}>
+              <Body style={{ flex: 1, flexDirection: 'row',  }}>
                 <Icon type="FontAwesome5" name="wallet"></Icon>
                 <Text style={{marginLeft:10}}>
                   Wallet
@@ -28,7 +29,7 @@ export default function Profil() {
           </Card>
           <Card transparent>
             <CardItem>
-              <Body style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+              <Body style={{ flex: 1, flexDirection: 'row' }}>
                 <Icon type="FontAwesome5" name="cog"></Icon>
                 <Text style={{marginLeft:10}}>
                   Parametres
