@@ -58,7 +58,7 @@ export default function Route() {
         Categorie: {
             screen: CategorieScreen
         },
-        Profil:{
+        Compte:{
             screen:Profil,  
              navigationOptions: {
                 drawerIcon: (
