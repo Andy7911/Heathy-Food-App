@@ -84,7 +84,7 @@ return(
         }, 0);
         return (
             <Container>
-                <Header />
+              
                 <Content scrollEnabled={true}>
                     <Modal visible={this.state.visible} onDisableCallBack={()=>this.disable()} ></Modal>
                    
