@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
-import {CardItem,Card,Container,Content,Body} from 'native-base'
+import {CardItem,Card,Container,Content,Body, Button} from 'native-base'
 import { Col, Row, Grid } from 'react-native-easy-grid';
 export default class WalletScreen extends Component {
     render() {
@@ -21,6 +21,7 @@ export default class WalletScreen extends Component {
                 <Text style={{fontSize:50,color:'black'}}>
                     0.00$
                 </Text>
+                <Button rounded style={{backgroundColor:'black',width:200,height:70,justifyContent:'center'}}><Text style={{color:'white',fontSize:18,}}>+ Ajouter des fonds</Text></Button>
               </Body>
             </CardItem>
            
@@ -28,7 +29,7 @@ export default class WalletScreen extends Component {
          <Card transparent>
             <CardItem >
               <Body>
-               <Text style={{color:'green'}}>Ajourter un mode de Paiement</Text>
+               <Text  onPress={()=>navigation.navigate('AjouterPaiement')} style={{color:'green'}}>Ajourter un mode de Paiement</Text>
               </Body>
             </CardItem>
            
