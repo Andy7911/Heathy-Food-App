@@ -7,7 +7,8 @@ export default class AjouterPaiement extends Component {
     state={
         cardNumber:'',
         cardExp:'',
-        cardSecret:''
+        cardSecret:'',
+        codePostal:'',
     }
     render() {
         return (
@@ -23,11 +24,11 @@ export default class AjouterPaiement extends Component {
                 
                 <Item style={{justifyContent:'space-between'}}>
                     
-                  <Input placeholder="MM//AA" />
-                  <Input placeholder="Code de sécurité" />
+                  <Input keyboardType="numeric" placeholder="MM//AA" />
+                  <Input placeholder="Code de sécurité"  onChangeText={text=>this.setState({cardSecret:text})}/>
                 </Item>
-                <Item last>
-                  <Input placeholder="code postal"></Input>
+                <Item style={{marginTop:20}} last>
+                  <Input  placeholder="code postal"></Input>
                 </Item>
                
                
