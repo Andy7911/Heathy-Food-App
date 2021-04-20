@@ -19,7 +19,7 @@ export default function Profil({navigation}) {
           </Card>
           <Card transparent>
             <CardItem button onPress={()=>navigation.navigate('Wallet')}>
-              <Body style={{ flex: 1, flexDirection: 'row',  }}>
+              <Body style={{ flex: 1, flexDirection: 'row'  }}>
                 <Icon type="FontAwesome5" name="wallet"></Icon>
                 <Text style={{marginLeft:10}}>
                   Wallet

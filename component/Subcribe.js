@@ -3,9 +3,9 @@ import React,{useState,useContext,useEffect} from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 import { Text, Item, Input, Form, Container, Header, Content, Label, Button, Icon, StyleProvider, Right } from 'native-base';
 
-import auth from '@react-native-firebase/auth';
+
 import { AuthContext } from '../navigate/AuthProvider';
-class SignUpScreen extends React.Component { 
+class Subcribe extends React.Component { 
   static contextType = AuthContext;
   constructor(props) {
    
@@ -38,7 +38,7 @@ class SignUpScreen extends React.Component {
           />
 
         </View>
-        <Form style={{marginTop:25}}>
+        <Form>
           <Item rounded last floatingLabel>
             <Icon type="FontAwesome" name='envelope' style={{ color: 'black' }} />
             <Label>   Email</Label>
@@ -51,11 +51,10 @@ class SignUpScreen extends React.Component {
             <Input onChangeText={password=>this.setState({password:password})} />
           </Item>
         </Form>
-        <Button rounded success style={{ marginTop: 50,marginBottom:10 }} onPress={()=>{ login(this.state.email,this.state.password)
+        <Button rounded success style={{ marginTop: 20,marginBottom:10 }} onPress={()=>{ register(this.state.email,this.state.password)
           
-        }} block ><Text >Connection</Text></Button>
-        <Text onPress={()=>navigation.navigate('SubcribeScreen')} style={{textAlign:'center',marginTop:15}}>Subcribe here </Text>
-
+        }} block ><Text >Subscribe</Text></Button>
+     
       </Content>
     </Container>
     
@@ -82,4 +81,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default SignUpScreen;
+export default Subcribe;

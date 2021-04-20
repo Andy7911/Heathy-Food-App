@@ -15,6 +15,9 @@ import Profil from '../component/Profil';
 import {CartContext, CartProvider} from '../navigate/CartProvider';
 import Wallet from '../component/WalletScreen';
 import WalletScreen from '../component/WalletScreen';
+import DetailScreen from '../component/DetailScreen';
+import AjouterPaiement from '../component/AjouterPaiement';
+import Subcribe from '../component/Subcribe';
 
 
 export default function Route() {
@@ -58,7 +61,7 @@ export default function Route() {
         Categorie: {
             screen: CategorieScreen
         },
-        Profil:{
+        Compte:{
             screen:Profil,  
              navigationOptions: {
                 drawerIcon: (
@@ -78,8 +81,15 @@ export default function Route() {
         SignUpScreen: {
             screen: SignUpScreen,
             navigationOptions: () => ({
-                title: 'sighup',
+                headerShown:false
             })
+        },
+        SubcribeScreen:{
+            screen:Subcribe,
+            navigationOptions: () => ({
+                title:'Subscribe'
+            })
+            
         }
 
 
@@ -114,8 +124,22 @@ export default function Route() {
             navigationOptions: () => ({
 
             })
+            
+        },
+        Detail:{
+            screen:DetailScreen,
+            navigationOptions:()=>({
+
+            })
+        
+        },
+        AjouterPaiement:{
+            screen:AjouterPaiement,
+            navigationOptions:()=>({
+
+            })
         }
-    })
+    });
 
     const LoginContainer = createAppContainer(LoginApp)
     const UserContainer = createAppContainer(UserApp);
