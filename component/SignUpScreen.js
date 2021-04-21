@@ -25,19 +25,20 @@ class SignUpScreen extends React.Component {
   return (
  
      
-    <Container>
+    <Container >
      
-      <Content scrollEnabled={false}>
+      <Content style={{flex:6}} contentContainerStyle={{flex:6}} scrollEnabled={false}>
     
         <View style={{ flexDirection: 'row', flex: 2, justifyContent: "center",marginTop:35 }}>
           <Image
             source={{
               uri: 'https://i.ibb.co/GHtvyKY/logo-health-food-eating-vector-fork-logo-46ef4e30c07292c0988b786f43ea8a52.png',
             }}
-            style={{ width: 160, height: 250 }}
+            style={{ width: 125, height: 200 }}
           />
 
         </View>
+        <View style={{flex:3 ,flexDirection:'column',justifyContent:'center'}}>
         <Form style={{marginTop:25}}>
           <Item rounded last floatingLabel>
             <Icon type="FontAwesome" name='envelope' style={{ color: 'black' }} />
@@ -48,14 +49,16 @@ class SignUpScreen extends React.Component {
           <Item rounded last floatingLabel style={{marginBottom:10}}>
             <Icon type='FontAwesome5' name='key'></Icon>
             <Label>  Password</Label>
-            <Input onChangeText={password=>this.setState({password:password})} />
+            <Input  onChangeText={password=>this.setState({password:password})} />
           </Item>
         </Form>
-        <Button rounded success style={{ marginTop: 50,marginBottom:10 }} onPress={()=>{ login(this.state.email,this.state.password)
+        </View>
+        <View style={{ flex:2, flexDirection:'column',justifyContent:'center'}}>
+        <Button rounded success onPress={()=>{ login(this.state.email,this.state.password)
           
         }} block ><Text >Connection</Text></Button>
         <Text onPress={()=>navigation.navigate('SubcribeScreen')} style={{textAlign:'center',marginTop:15}}>Subcribe here </Text>
-
+        </View>
       </Content>
     </Container>
     
