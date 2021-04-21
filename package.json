@@ -21,7 +21,6 @@
     "node": "^15.8.0",
     "react": "16.13.1",
     "react-devtools": "^4.10.1",
-    "react-dom": "16.13.1",
     "react-native": "~0.63.3",
     "react-native-exception-handler": "^2.10.9",
     "react-native-gesture-handler": "^1.10.1",
@@ -40,15 +39,25 @@
   "devDependencies": {
     "@babel/core": "~7.9.0",
     "babel-jest": "~25.2.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "jest": "~25.2.6",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
     "jest-expo": "^41.0.0",
+    "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1"
   },
   "jest": {
-    "preset": "jest-expo",
+    "preset": "react-native",
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
-    ]
-  },
+      "/node_modules/native-base/"
+    ],
+    "setupFilesAfterEnv": ["jest-enzyme"],
+    "testEnvironment": "enzyme",
+    "testEnvironmentOptions": {
+        "enzymeAdapter": "react16"
+    }  
+},
   "private": true
 }

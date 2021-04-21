@@ -1,11 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
+import testScreen from "../component/testScreen"
 import App from './App';
+import Enzyme, {shallow} from 'enzyme'
 
-describe('<App />', () => {
-  it('has 1 child', () => {
- 
-    expect(true).toBe(true);
-  });
+it('renders correctly, test using Jest', () => {
+
+  renderer.create(<testScreen></testScreen>)
+});
+
+it('renders correctly, test using Shallow', () => {
+
+  const wrapper = shallow(<testScreen></testScreen>);
 });
