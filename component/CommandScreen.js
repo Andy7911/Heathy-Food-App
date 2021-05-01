@@ -5,6 +5,7 @@ import { CartContext } from '../navigate/CartProvider';
 import database from '@react-native-firebase/database'
 
 
+
  class  CommandScreen extends React.Component{
   static contextType = CartContext;
   constructor(props) {
@@ -88,7 +89,7 @@ const items = this.state.dishes.slice;
          {dishProduit} 
            
         </Content>
-       <Button style={{position:'absolute',left:25,right:0,zIndex:-1,bottom:10,width:'90%',justifyContent:'center',backgroundColor:'black'}} ><Text>Afficher le panier  .{panier.length}</Text></Button>
+       <Button style={{position:'absolute',left:25,right:0,zIndex:-1,bottom:10,width:'90%',justifyContent:'center',backgroundColor:'black'}} ><Text>Afficher le panier  </Text></Button>
       </Container>
     );}
     
