@@ -57,7 +57,7 @@ class SignUpScreen extends React.Component {
         <Button rounded success onPress={()=>{ login(this.state.email,this.state.password)
           
         }} block ><Text >Connection</Text></Button>
-        <Text onPress={()=>navigation.navigate('SubcribeScreen')} style={{textAlign:'center',marginTop:15}}>Subcribe here </Text>
+        <Text onPress={()=>navigation.navigate('SubcribeScreen')} style={{textAlign:'center',marginTop:15,color:'blue'}}>Subcribe here </Text>
         </View>
       </Content>
     </Container>
