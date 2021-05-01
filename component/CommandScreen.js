@@ -41,6 +41,9 @@ const items = this.state.dishes.slice;
   render(){
   const { navigation } = this.props;
     const{panier,login,setPanier,addQuantite}=this.context
+    const sum = panier.reduce(function (total, currentValue) {
+      return total + currentValue.sommePrix;
+  }, 0);
  const dishProduit = this.state.dishes.map(dish=>{return <Card key={dish.id} style={{flex: 0,marginTop:20}}>
    
     <CardItem key={dish.id}>
@@ -69,7 +72,7 @@ const items = this.state.dishes.slice;
         </Button>
       </Left>
       <Right>
-      <Button transparent textStyle={{color: '#87838B',}} >
+     <Button transparent textStyle={{color: '#87838B',}} >
           <Text style={{fontSize:15}}> Prix: {dish.prix} $</Text>
       
           <Text onPress={()=>{addQuantite(dish.id,dish)}} style={{fontSize:15,marginRight:11}}>Add to Cart</Text>
@@ -89,7 +92,10 @@ const items = this.state.dishes.slice;
          {dishProduit} 
            
         </Content>
-       <Button style={{position:'absolute',left:25,right:0,zIndex:-1,bottom:10,width:'90%',justifyContent:'center',backgroundColor:'black'}} ><Text>Afficher le panier  </Text></Button>
+        {panier.length ?
+       <Button style={{position:'absolute',left:25,right:0,zIndex:-1,bottom:10,width:'90%',justifyContent:'center',backgroundColor:'black'}} >
+       <Text>Afficher le panier {sum}  </Text></Button>
+       :null}
       </Container>
     );}
     
