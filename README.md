@@ -5,5 +5,5 @@ npx react-native run-android
 
 
 # Prochaine Etape  
-Implementation système de paiement
+Implementation système de paiement  
 Système de courriel 
