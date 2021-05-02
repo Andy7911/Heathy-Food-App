@@ -26,24 +26,11 @@ import database from '@react-native-firebase/database'
   });
 
  }
- addquatité(id){
-const items = this.state.dishes.slice;
-  const index = items.findIndex(function(item){
-    return item== id;
-  })
-  if(index!=-1){
 
-    items[index].quatité=1;
-
-  }
-
- }
   render(){
   const { navigation } = this.props;
     const{panier,login,setPanier,addQuantite}=this.context
-    const sum = panier.reduce(function (total, currentValue) {
-      return total + currentValue.sommePrix;
-  }, 0);
+ 
  const dishProduit = this.state.dishes.map(dish=>{return <Card key={dish.id} style={{flex: 0,marginTop:20}}>
    
     <CardItem key={dish.id}>
@@ -83,7 +70,9 @@ const items = this.state.dishes.slice;
   </Card>
 
   })
-  
+  const sum = panier.reduce(function (total, currentValue) {
+    return total + currentValue.sommePrix;
+}, 0);
     return (
         <Container>
         
