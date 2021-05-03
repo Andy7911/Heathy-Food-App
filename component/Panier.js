@@ -18,7 +18,9 @@ export default class Panier extends React.Component {
             monPanier:[{}]
         };
     }
- 
+
+
+
   Setvisible =()=>{
 
             this.setState({visible:!this.state.visible});

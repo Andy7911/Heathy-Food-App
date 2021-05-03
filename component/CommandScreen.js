@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image,View } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 import { CartContext } from '../navigate/CartProvider';
 import database from '@react-native-firebase/database'
@@ -31,7 +31,7 @@ import database from '@react-native-firebase/database'
   const { navigation } = this.props;
     const{panier,login,setPanier,addQuantite}=this.context
  
- const dishProduit = this.state.dishes.map(dish=>{return <Card key={dish.id} style={{flex: 0,marginTop:20}}>
+ const dishProduit = this.state.dishes.map(dish=>{return <Card key={dish.id} style={{flex: 0,marginTop:20,width:'90%',justifyContent:'center',alignContent:'center'}}>
    
     <CardItem key={dish.id}>
       <Left>
@@ -42,9 +42,9 @@ import database from '@react-native-firebase/database'
         </Body>
       </Left>
     </CardItem>
-    <CardItem button style={{justifyContent:'center',alignItems:'center'}} onPress={()=>navigation.navigate('Detail',{id:dish.id})}>
-      <Body>
-        <Image source={{uri: dish.url}} style={{height: 200, width: 400, flex: 1}}/>
+    <CardItem button  onPress={()=>navigation.navigate('Detail',{id:dish.id})}>
+      <Body style={{justifyContent:'center',alignItems:'center'}}>
+        <Image source={{uri: dish.url}} style={{height: 200, width: 300, flex: 1,justifyContent:'center'}}/>
         <Text>
          {dish.description}
         </Text>
@@ -77,9 +77,9 @@ import database from '@react-native-firebase/database'
         <Container>
         
         <Content style={{marginTop:25}}>
-        
+        <View style={{justifyContent:'center',alignContent:'center',alignItems:'center'}}>
          {dishProduit} 
-           
+           </View>
         </Content>
         {panier.length ?
        <Button style={{position:'absolute',left:25,right:0,zIndex:-1,bottom:10,width:'90%',justifyContent:'center',backgroundColor:'black'}} >
