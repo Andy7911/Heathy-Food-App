@@ -18,6 +18,7 @@ import WalletScreen from '../component/WalletScreen';
 import DetailScreen from '../component/DetailScreen';
 import AjouterPaiement from '../component/AjouterPaiement';
 import Subcribe from '../component/Subcribe';
+import TransitionScreen from '../component/TransitionScreen'
 
 
 export default function Route() {
@@ -53,7 +54,7 @@ export default function Route() {
 
     const AppDrawerNav = createDrawerNavigator({
         Assiete: {
-            screen: CommandScreen
+            screen: TransitionScreen
         },
         Panier: {
             screen: PanierScreen

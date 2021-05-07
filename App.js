@@ -10,6 +10,7 @@ import auth from '@react-native-firebase/auth';
 import Route from './navigate/Route';
 import {CartProvider} from './navigate/CartProvider';
 import{PaiementProvider} from './navigate/PaiementProvider';
+import TransitionScreen from './component/TransitionScreen'
 
 
 const AppDrawerNav =  createDrawerNavigator({
