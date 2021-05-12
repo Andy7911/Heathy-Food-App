@@ -5,7 +5,7 @@ import { Alert } from 'react-native';
 export default function Profil({navigation}) {
     return (
         <Container>
-        <Header style={{flexDirection: 'row',justifyContent: 'flex-start',alignContent:'center' } }><Badge><Icon type='FontAwesome5' name="user" ></Icon></Badge></Header>
+        <Header style={{flexDirection: 'row',justifyContent: 'flex-start',alignContent:'center' } }><Badge ><Icon type='FontAwesome5' name="user"  ></Icon></Badge></Header>
         <Content scrollEnabled={true}>
         <Card transparent>
             <CardItem>

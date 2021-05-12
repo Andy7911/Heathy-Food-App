@@ -26,7 +26,9 @@ import database from '@react-native-firebase/database'
   });
 
  }
-
+componentWillUnmount(){
+database().ref('Dish').off()
+}
   render(){
   const { navigation } = this.props;
     const{panier,login,setPanier,addQuantite}=this.context
