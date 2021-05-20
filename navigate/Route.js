@@ -20,6 +20,7 @@ import AjouterPaiement from '../component/AjouterPaiement';
 import Subcribe from '../component/Subcribe';
 import TransitionSceen from '../component/TransitionScreen'
 import testScreen from '../component/testScreen'
+import PaiementScreen from '../component/PaiementScreen';
 
 export default function Route() {
     const [initializing, setInitializing] = useState(true);
@@ -51,10 +52,14 @@ export default function Route() {
         </SafeAreaView>
 
     );
-
-    const AppDrawerNav = createDrawerNavigator({
+    const DrawerNavigatorConfig = {
+        contentComponent: customDrawer,
+        
+     
+    } 
+    const DrawerRouteConfigs = {
         Assiete: {
-            screen: TransitionSceen
+            screen: CommandScreen
         },
         Panier: {
             screen: PanierScreen
@@ -72,11 +77,9 @@ export default function Route() {
                 ),
               },
         }
+    }
 
-    },
-        {
-            contentComponent: customDrawer
-        });
+    const AppDrawerNav = createDrawerNavigator( DrawerRouteConfigs ,DrawerNavigatorConfig);
 
     const LoginApp = createStackNavigator({
         SignUpScreen: {
@@ -139,6 +142,9 @@ export default function Route() {
             navigationOptions:()=>({
 
             })
+        },
+        PaiementScreen:{
+            screen:PaiementScreen
         }
     });
 

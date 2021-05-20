@@ -106,7 +106,7 @@ return(
                             <Text>
                                 Taxe:  {parseFloat(sum * 0.1495).toFixed(2)} $
                             </Text>
-                            <Button rounded  onPress={()=>this.Setvisible()} ><Text>Pay</Text></Button>
+                            <Button rounded  onPress={()=>navigation.navigate('PaiementScreen')} ><Text>Pay</Text></Button>
                         </Body>
                     </CardItem>
                 </Card>
