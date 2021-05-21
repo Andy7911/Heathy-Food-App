@@ -12,12 +12,13 @@ export default function PaiementScreen() {
     const [cardNumber, setCardNumber] = useState('4550');
     const [cvc, setCvc] = useState('123');
     const [exp, setexp] = useState('04/02');
+    const [fistLastName, setfistLastName] = useState('');
     let emailRegex = /\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/;
 
     const sum = panier.reduce(function (total, currentValue) {
         return total + currentValue.sommePrix;
     }, 0);
-    
+
     return (
 
         <Container >
@@ -28,8 +29,8 @@ export default function PaiementScreen() {
                         number={cardNumber}
                         cvc={cvc}
                         expiration={exp}
-                        name="John J. Doe"
-                        since="2004"
+                        name={fistLastName}
+                        
                     />
                 </View>
                 <View style={{ flex: 1, marginTop: 10, }}>
@@ -44,7 +45,7 @@ export default function PaiementScreen() {
                     <Text style={{ fontSize: 20 }}>Prenom et Nom</Text>
                     <Item error={true} style={{ width: '90%', height: 50 }}>
 
-                        <Input  placeholder='Credit Card' onChangeText={e => setCardNumber(e)} />
+                        <Input  placeholder='Credit Card' onChangeText={e => setfistLastName(e)} />
                         <Icon name='checkmark-circle' />
                     </Item>
                 </View>
