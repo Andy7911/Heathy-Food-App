@@ -34,12 +34,12 @@ export default function PaiementScreen() {
                         
                     />
                 </View>
-                <View style={{ flex: 1, marginTop: 10, }}>
-                    <Text style={{ fontSize: 20 }}>Numero de carte</Text>
-                    <Item success style={{ width: '90%', height: 50 }}>
+                <View style={{ flex: 1, marginTop: 10,alignItems:'center',textAlign:'right',flexDirection:'column'  }}>
+                    <Text style={{ fontSize: 20,textAlign:'left' }}>Numero de carte</Text>
+                    <Item  regular   style={{ width: '90%', height: 50 }}>
 
-                        <Input  placeholder='Credit Card' onChangeText={e => setCardNumber(e)} />
-                        <Icon name='checkmark-circle' />
+                        <Input  placeholder='Numero de carte' onChangeText={e => setCardNumber(e)} />
+                        <Icon type='FontAwesome' name='lock' />
                     </Item>
                 </View>
                 <View style={{ flex: 1, marginTop: 10, }}>
