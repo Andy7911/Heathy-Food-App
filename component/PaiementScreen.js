@@ -13,6 +13,7 @@ export default function PaiementScreen() {
     const [cvc, setCvc] = useState('123');
     const [exp, setexp] = useState('04/02');
     const [fistLastName, setfistLastName] = useState('');
+    const [emailInputError, setemailInputError] = useState(true);
     let emailRegex = /\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/;
 
     const sum = panier.reduce(function (total, currentValue) {
@@ -21,9 +22,9 @@ export default function PaiementScreen() {
 
     return (
 
-        <Container >
+        <Container  >
 
-            <Content contentContainerStyle={{ flexDirection: 'column' }}>
+            <Content scrollEnabled={true} contentContainerStyle={{ flexDirection: 'column' }}>
                 <View style={{ alignItems: 'center'}}>
                     <CreditCardDisplay style={{height:50,with:100}}
                         number={cardNumber}
@@ -35,7 +36,7 @@ export default function PaiementScreen() {
                 </View>
                 <View style={{ flex: 1, marginTop: 10, }}>
                     <Text style={{ fontSize: 20 }}>Numero de carte</Text>
-                    <Item error={true} style={{ width: '90%', height: 50 }}>
+                    <Item success style={{ width: '90%', height: 50 }}>
 
                         <Input  placeholder='Credit Card' onChangeText={e => setCardNumber(e)} />
                         <Icon name='checkmark-circle' />
@@ -43,7 +44,7 @@ export default function PaiementScreen() {
                 </View>
                 <View style={{ flex: 1, marginTop: 10, }}>
                     <Text style={{ fontSize: 20 }}>Prenom et Nom</Text>
-                    <Item error={true} style={{ width: '90%', height: 50 }}>
+                    <Item  style={{ width: '90%', height: 50 }}   >
 
                         <Input  placeholder='Credit Card' onChangeText={e => setfistLastName(e)} />
                         <Icon name='checkmark-circle' />
