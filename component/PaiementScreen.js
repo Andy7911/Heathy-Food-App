@@ -1,9 +1,9 @@
-import React, { useState,useContext } from 'react'
-
-import { Input, Container, Content, Header, Item, Icon, Text,Button,Card,CardItem,Body,View } from 'native-base';
+import React, { useState, useContext } from 'react'
+import { Text } from 'react-native';
+import { Input, Container, Content, Header, Item, Icon, Button, Card, CardItem, Body, View } from 'native-base';
 import CreditCardDisplay from 'react-native-credit-card-display';
 import { CartContext } from '../navigate/CartProvider';
- 
+
 
 
 
@@ -24,60 +24,103 @@ export default function PaiementScreen() {
 
         <Container  >
 
-            <Content scrollEnabled={true} contentContainerStyle={{ flexDirection: 'column' }}>
-                <View style={{ alignItems: 'center'}}>
-                    <CreditCardDisplay style={{height:50,with:100}}
-                        number={cardNumber}
-                        cvc={cvc}
-                        expiration={exp}
-                        name={fistLastName}
-                        
-                    />
-                </View>
-                <View style={{ flex: 1, marginTop: 10,alignItems:'center',textAlign:'right',flexDirection:'column'  }}>
-                    <Text style={{ fontSize: 20,textAlign:'left' }}>Numero de carte</Text>
-                    <Item  regular   style={{ width: '90%', height: 50 }}>
+            <Content scrollEnabled={true} contentContainerStyle={{ flexDirection: 'column', alignItems: 'center' }}>
 
-                        <Input  placeholder='Numero de carte' onChangeText={e => setCardNumber(e)} />
+                <CreditCardDisplay style={{ height: 50, with: 100 }}
+                    number={cardNumber}
+                    cvc={cvc}
+                    expiration={exp}
+                    name={fistLastName}
+
+                />
+
+                <View>
+                    <Text style={{ fontSize: 15, textAlign: 'left' }}>Numero de carte</Text>
+                    <Item regular style={{ width: '90%', height: 50,backgroundColor:'#EEEEFD' }}>
+
+                        <Input  placeholderTextColor="#B5B5B5" placeholder='Numero de carte' onChangeText={e => setCardNumber(e)} />
                         <Icon type='FontAwesome' name='lock' />
                     </Item>
                 </View>
-                <View style={{ flex: 1, marginTop: 10, }}>
-                    <Text style={{ fontSize: 20 }}>Prenom et Nom</Text>
-                    <Item  style={{ width: '90%', height: 50 }}   >
 
-                        <Input  placeholder='Credit Card' onChangeText={e => setfistLastName(e)} />
-                        <Icon name='checkmark-circle' />
-                    </Item>
-                </View>
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', marginTop: 15 }}>
                     <Text style={{ fontSize: 20 }}></Text>
                     <View style={{ flexDirection: 'column', width: '50%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 20 }} >Date expiration</Text>
-                        <Item regular style={{ marginTop: 15, width: '90%', height: 50 }}>
+                        <Text style={{ fontSize: 15 }} >Date expiration</Text>
+                        <Item regular style={{ marginTop: 15, width: '90%', height: 50,backgroundColor:'#EEEEFD' }}>
                             <Input dataDetectorTypes='calendarEvent' style={{ width: '50%', height: 50 }} placeholder='Textbox with Success Input' onChangeText={e => setexp(e)} />
-                            <Icon name='checkmark-circle' />
+                         
                         </Item>
                     </View>
+                    <View style={{ flexDirection: 'column', width: '45%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 15 }}>Code de sécurité</Text>
+                        <Item regular style={{ marginTop: 15, width: '90%', height: 50,backgroundColor:'#EEEEFD' }}>
+                            <Input placeholder='3-4 chiffres' onChangeText={e => setCvc(e)} />
+                           
+                        </Item>
+                    </View>
+                </View>
+                <View>
+                    <Text style={{ fontSize: 15 }}>Nom Complet</Text>
+                    <Item style={{ width: '90%', height: 50,backgroundColor:'#EEEEFD' }} regular  >
+
+                        <Input placeholder='Credit Card' onChangeText={e => setfistLastName(e)} />
+                       
+                    </Item>
+                </View>
+                <View>
+                    <Text style={{ fontSize: 15 }}>Adresse ligne 1</Text>
+                    <Item style={{ width: '90%', height: 50,backgroundColor:'#EEEEFD' }} regular  >
+                        <Input  onChangeText={e => setfistLastName(e)} />
+                      
+                    </Item>
+                </View>
+                <View>
+                    <Text style={{ fontSize: 15 }}>Adresse ligne 2</Text>
+                    <Item style={{ width: '90%', height: 50,backgroundColor:'#EEEEFD' }} regular  >
+
+                        <Input  onChangeText={e => setfistLastName(e)} />
+                      
+                    </Item>
+                </View>
+                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', marginTop: 15}}>
+                    <Text style={{ fontSize: 20,textAlign:'left'  }}></Text>
                     <View style={{ flexDirection: 'column', width: '50%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 20 }}>Code de sécurité</Text>
-                        <Item regular style={{ marginTop: 15, width: '90%', height: 50 }}>
-                            <Input placeholder='Textbox with Success Input' onChangeText={e => setCvc(e)} />
+                        <Text style={{ fontSize: 15,textAlign:'left' }} >Pays</Text>
+                        <Item regular style={{ marginTop: 15, width: '90%', height: 50,backgroundColor:'#EEEEFD' }}>
+                            <Input dataDetectorTypes='calendarEvent' style={{ width: '50%', height: 50 }} placeholder='Textbox with Success Input' onChangeText={e => setexp(e)} />
+                           
+                        </Item>
+                    </View>
+                    <View style={{ flexDirection: 'column', width: '45%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 15 }}>Province</Text>
+                        <Item regular style={{ marginTop: 15, width: '90%', height: 50,backgroundColor:'#EEEEFD' }}>
+                            <Input placeholderTextColor="#B5B5B5" placeholder='Textbox with Success Input' onChangeText={e => setCvc(e)} />
                             <Icon name='checkmark-circle' />
                         </Item>
                     </View>
                 </View>
-                <View style={{flexDirection:'column' ,alignItems:'center',justifyContent:'center'}}>
-                <Card>
-            <CardItem>
-              
-                <Text>
-                   Total:{sum}
-                </Text>
-            
-            </CardItem>
-          </Card>
-                    <Button full rounded info>
+                <View>
+                    <Text style={{ fontSize: 15 }}>Téléphone </Text>
+                    <Item style={{ width: '90%', height: 50,backgroundColor:'#EEEEFD' }} regular  >
+
+                        <Input  onChangeText={e => setfistLastName(e)} />
+                      
+                    </Item>
+                </View>
+
+                <View style={{ flexDirection: 'column', width:'90%', alignItems: 'center', justifyContent: 'center' }}>
+                    <Card>
+
+                        <CardItem>
+
+                            <Text>
+                                Total:{sum}
+                            </Text>
+
+                        </CardItem>
+                    </Card>
+                    <Button full info>
                         <Text>Paiement</Text>
                     </Button>
                 </View>
