@@ -25,6 +25,7 @@ import PaiementScreen from '../component/PaiementScreen';
 export default function Route() {
     const [initializing, setInitializing] = useState(true);
     const { user, setUser, logout } = useContext(AuthContext);
+    
     const customDrawer = (props) => (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={{ height: 80, width: 100 }}>

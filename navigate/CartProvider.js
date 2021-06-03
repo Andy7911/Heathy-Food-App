@@ -7,6 +7,7 @@ export const CartProvider = ({ children }) => {
 
     const [panier, setPanier] = useState([]);
     const [profil, setProfil] = useState([]);
+    
     return (<CartContext.Provider value={{
         panier,
         setPanier,
