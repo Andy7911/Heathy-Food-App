@@ -19,26 +19,36 @@ export default function PaiementScreen() {
     const sum = panier.reduce(function (total, currentValue) {
         return total + currentValue.sommePrix;
     }, 0);
-const paimentCart=()=>{
-    stripe.setOptions({ publishingKey: 'sk_test_51IXbaUIWfkAcxuDbhORJKy1A129UBqY56sjKixYaVNUKQWMelehN2zaqPkEmN6gRyP4W8Y9hBhZhuzDEXYL98SYy00cL00H0na' })
+    const paimentCart = () => {
+        axios.post('http://192.168.1.104/api/charge', null, {
+            params: {
+                number: cardNumber,
+                exp_month:exp.substring(0,2),
+                exp_year:exp.substring(3,5),
+                cvc:cvc
 
-    const cardDetails = {
-        number: '4242424242424242',
-        expMonth: 10,
-        expYear: 21,
-        cvc: '888',
-      }
-      debugger
-      stripe.confirmPayment('client_secret_from_backend', cardDetails)
-      .then(result => {
-        console.log(result);
-      })
-      .catch(err =>
-        console.log(err)
-      )
+            }
+        })
 
+    }
+    const handlerchange = (text) => {
+        debugger;
+        let textTemp = text;
+        if (textTemp[0] !== '1' && textTemp[0] !== '0') {
+            textTemp = '';
+        }
+        if (textTemp.length === 2) {
+            if (parseInt(textTemp.substring(0, 2)) > 12 || parseInt(textTemp.substring(0, 2)) == 0) {
+                textTemp = textTemp[0];
+            } else if (textTemp.length === 2) {
+                textTemp += '/';
+            } else {
+                textTemp = textTemp[0];
+            }
+        }
+        setexp(textTemp);
 
-}
+    }
     return (
 
         <Container  >
@@ -55,7 +65,7 @@ const paimentCart=()=>{
 
                 <View>
                     <Text style={{ fontSize: 15, textAlign: 'left' }}>Numero de carte</Text>
-                    <Item regular style={{ width: '90%', height: 50,backgroundColor:'#EEEEFD' }}>
+                    <Item regular style={{ width: '90%', height: 50, backgroundColor: '#EEEEFD' }}>
 
                         <Input maxLength={16} keyboardType='number-pad' placeholderTextColor="#B5B5B5" placeholder='Numero de carte' onChangeText={e => setCardNumber(e)} />
                         <Icon type='FontAwesome' name='lock' />
@@ -63,72 +73,73 @@ const paimentCart=()=>{
                 </View>
 
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', marginTop: 15 }}>
-                    
+
                     <View style={{ flexDirection: 'column', width: '50%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ fontSize: 15 }} >Date expiration</Text>
-                        <Item regular style={{ marginTop: 15, width: '90%', height: 50,backgroundColor:'#EEEEFD' }}>
-                            <Input  placeholderTextColor="#B5B5B5"  style={{ width: '50%', height: 50 }} placeholder='MM/AA' onChangeText={e => setexp(e)} />
-                         
+                        <Item regular style={{ marginTop: 15, width: '90%', height: 50, backgroundColor: '#EEEEFD' }}>
+                            <Input placeholderTextColor="#B5B5B5" style={{ width: '50%', height: 50 }}
+                                placeholder='MM/AA' maxLength={5} value={exp} onChangeText={e => handlerchange(e)} />
+
                         </Item>
                     </View>
                     <View style={{ flexDirection: 'column', width: '45%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ fontSize: 15 }}>Code de sécurité</Text>
-                        <Item regular style={{ marginTop: 15, width: '90%', height: 50,backgroundColor:'#EEEEFD' }}>
-                            <Input  placeholderTextColor="#B5B5B5" value={cvc} placeholder='3-4 chiffres' onChangeText={e => setCvc(e)} />
-                           
+                        <Item regular style={{ marginTop: 15, width: '90%', height: 50, backgroundColor: '#EEEEFD' }}>
+                            <Input placeholderTextColor="#B5B5B5" value={cvc} placeholder='3-4 chiffres' onChangeText={e => setCvc(e)} />
+
                         </Item>
                     </View>
                 </View>
                 <View>
                     <Text style={{ fontSize: 15 }}>Nom Complet</Text>
-                    <Item style={{ width: '90%', height: 50,backgroundColor:'#EEEEFD' }} regular  >
+                    <Item style={{ width: '90%', height: 50, backgroundColor: '#EEEEFD' }} regular  >
 
-                        <Input  onChangeText={e => setfistLastName(e)} />
-                       
+                        <Input onChangeText={e => setfistLastName(e)} />
+
                     </Item>
                 </View>
                 <View>
                     <Text style={{ fontSize: 15 }}>Adresse ligne 1</Text>
-                    <Item style={{ width: '90%', height: 50,backgroundColor:'#EEEEFD' }} regular  >
-                        <Input  onChangeText={e => setfistLastName(e)} />
-                      
+                    <Item style={{ width: '90%', height: 50, backgroundColor: '#EEEEFD' }} regular  >
+                        <Input onChangeText={e => setfistLastName(e)} />
+
                     </Item>
                 </View>
                 <View>
                     <Text style={{ fontSize: 15 }}>Adresse ligne 2</Text>
-                    <Item style={{ width: '90%', height: 50,backgroundColor:'#EEEEFD' }} regular  >
+                    <Item style={{ width: '90%', height: 50, backgroundColor: '#EEEEFD' }} regular  >
 
-                        <Input  onChangeText={e => setfistLastName(e)} />
-                      
+                        <Input onChangeText={e => setfistLastName(e)} />
+
                     </Item>
                 </View>
-                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', marginTop: 15}}>
-                    <Text style={{ fontSize: 20,textAlign:'left'  }}></Text>
+                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', marginTop: 15 }}>
+                    <Text style={{ fontSize: 20, textAlign: 'left' }}></Text>
                     <View style={{ flexDirection: 'column', width: '50%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 15,textAlign:'left' }} >Pays</Text>
-                        <Item regular style={{ marginTop: 15, width: '90%', height: 50,backgroundColor:'#EEEEFD' }}>
+                        <Text style={{ fontSize: 15, textAlign: 'left' }} >Pays</Text>
+                        <Item regular style={{ marginTop: 15, width: '90%', height: 50, backgroundColor: '#EEEEFD' }}>
                             <Input style={{ width: '50%', height: 50 }} maxLength={4} onChangeText={e => setexp(e)} />
-                           
+
                         </Item>
                     </View>
                     <View style={{ flexDirection: 'column', width: '45%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ fontSize: 15 }}>Province</Text>
-                        <Item regular style={{ marginTop: 15, width: '90%', height: 50,backgroundColor:'#EEEEFD' }}>
-                            <Input placeholderTextColor="#B5B5B5"  onChangeText={e => setCvc(e)} />
-                            
+                        <Item regular style={{ marginTop: 15, width: '90%', height: 50, backgroundColor: '#EEEEFD' }}>
+                            <Input placeholderTextColor="#B5B5B5" onChangeText={e => setCvc(e)} />
+
                         </Item>
                     </View>
                 </View>
                 <View>
                     <Text style={{ fontSize: 15 }}>Téléphone </Text>
-                    <Item style={{ width: '90%', height: 50,backgroundColor:'#EEEEFD' }} regular  >
+                    <Item style={{ width: '90%', height: 50, backgroundColor: '#EEEEFD' }} regular  >
 
-                        <Input  onChangeText={e => setfistLastName(e)} />
-                      
+                        <Input onChangeText={e => setfistLastName(e)} />
+
                     </Item>
                 </View>
 
-                <View style={{ flexDirection: 'column', width:'90%', alignItems: 'center', justifyContent: 'center' }}>
+                <View style={{ flexDirection: 'column', width: '90%', alignItems: 'center', justifyContent: 'center' }}>
                     <Card>
 
                         <CardItem>

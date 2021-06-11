@@ -60,7 +60,7 @@ export default function Route() {
     } 
     const DrawerRouteConfigs = {
         Assiete: {
-            screen: CommandScreen
+            screen: TransitionSceen
         },
         Panier: {
             screen: PanierScreen

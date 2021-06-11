@@ -3,7 +3,7 @@ import { Image,View } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 import { CartContext } from '../navigate/CartProvider';
 import database from '@react-native-firebase/database'
-
+import axios from 'axios'
 
 
  class  CommandScreen extends React.Component{
@@ -19,11 +19,14 @@ import database from '@react-native-firebase/database'
   }  
   //const {logout} =useContext(AuthContext) 
  componentDidMount(){
-  const onValueChange = database()
+   
+axios.get('http://192.168.1.104:5000/api/all-dish').then(res=>this.setState({dishes:res.data}))
+
+  /*  const onValueChange = database()
   .ref('Dish')
   .on('value', snapshot => {
     this.setState({dishes:snapshot.val()});
-  });
+  }); */ 
 
  }
 componentWillUnmount(){

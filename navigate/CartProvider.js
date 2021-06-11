@@ -15,15 +15,15 @@ export const CartProvider = ({ children }) => {
         handleDelete(id) {
             const items = panier.slice();
             const index = items.findIndex(function (item) {
-                return item.id == id;
+                return item._id == id;
             })
             items.splice(index, 1)
             setPanier(items);
         },
         addQuantite(id, Dish) {
-            debugger;
+            
             const items = panier.slice();
-            const item = items.find(x=>x.id==id)
+            const item = items.find(x=>x._id==id)
             if (item!= undefined) {
                 item.quatité++;
                 const nbquatité =item.quatité;
