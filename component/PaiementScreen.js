@@ -13,30 +13,36 @@ export default function PaiementScreen() {
     const [cardNumber, setCardNumber] = useState('');
     const [cvc, setCvc] = useState('123');
     const [exp, setexp] = useState(" ");
+    const [total,setTotal] = useState();
     const [fistLastName, setfistLastName] = useState('');
     const [emailInputError, setemailInputError] = useState(true);
     let emailRegex = /\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/;
     const sum = panier.reduce(function (total, currentValue) {
         return total + currentValue.sommePrix;
     }, 0);
+   
     const paimentCart = () => {
-        axios.post('http://192.168.1.104/api/charge', null, {
-            params: {
+        debugger
+     
+        axios({
+            method: 'post',
+            url: 'http://192.168.1.104:5000/api/charge',
+            data: {
                 number: cardNumber,
                 exp_month:exp.substring(0,2),
                 exp_year:exp.substring(3,5),
-                cvc:cvc
-
-            }
-        })
-
+                cvc:cvc,
+                money:sum*100
+            },
+            
+          });
     }
     const handlerchange = (text) => {
-        debugger;
+       
         let textTemp = text;
         if (textTemp[0] !== '1' && textTemp[0] !== '0') {
             textTemp = '';
-        }
+        } 
         if (textTemp.length === 2) {
             if (parseInt(textTemp.substring(0, 2)) > 12 || parseInt(textTemp.substring(0, 2)) == 0) {
                 textTemp = textTemp[0];
@@ -150,7 +156,7 @@ export default function PaiementScreen() {
 
                         </CardItem>
                     </Card>
-                    <Button full info>
+                    <Button full info onPress={paimentCart}>
                         <Text>Paiement</Text>
                     </Button>
                 </View>
